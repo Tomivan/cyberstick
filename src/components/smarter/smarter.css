@@ -1,0 +1,20 @@
+.tv{
+    margin-top: -5%; 
+    height: 40vh;
+}
+.smarter{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.smarter h2{
+    margin-top: 5%;
+}
+.smarter button{
+    margin-bottom: 3%;
+}
+.tv-2{
+    height: 45vh;
+}

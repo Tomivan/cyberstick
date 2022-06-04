@@ -1,0 +1,14 @@
+.ready{
+    background: #000000;
+    color: #ffffff;
+    padding: 1.5em;
+    margin-top: 5%;
+}
+.ready-bottom{
+    margin-left: 10%;
+}
+.ready-bottom-content{
+    display: flex;
+    justify-content: space-evenly;
+    width: 70vw;
+}

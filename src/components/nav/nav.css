@@ -1,0 +1,21 @@
+.nav{
+    background: #000000;
+    padding: 1em;
+    height: 5vh;
+    display: flex;
+    justify-content: space-between;
+}
+.nav-left{
+    display: flex;
+}
+ul{
+    display: flex;
+    list-style-type: none;
+    color: #ffffff;
+}
+li{
+    margin-right: 30%;
+}
+.nav-icons img{
+    padding-right: 3em;
+}

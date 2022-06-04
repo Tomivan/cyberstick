@@ -1,0 +1,19 @@
+.footer{
+    background: #000000;
+    color: #ffffff;
+    padding: 1em;
+}
+.footer-top{
+    display: flex;
+    justify-content: space-around;
+}
+.footer-down{
+    display: flex;
+}
+.social-icons{
+    margin: 1% 0 0 5%;
+    width: 30vw;
+}
+.social-icon{
+    margin-left: 2%;
+}
