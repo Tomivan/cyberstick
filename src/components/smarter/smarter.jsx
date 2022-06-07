@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "@reach/router";
 import TV from "../../assets/images/tv.png";
 import TV2 from "../../assets/images/tv2.png";
 import "./smarter.css";
@@ -12,7 +13,7 @@ const Smarter = () => {
                 multimedia experience anytime, anywhere. Compact and portable, it brings a <br />
                 smarter life to your displays. 
             </p>
-            <button className="buy-now">Buy Now</button>
+            <button className="buy-now"><Link to="/bag" className="link">Buy Now</Link></button>
             <img src={TV2} alt="" className="tv-2" />
         </div>
     )

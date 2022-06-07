@@ -2,7 +2,7 @@ import React from "react";
 import { Router } from "@reach/router"
 import Home from "./Home";
 import Bag from "./Bag";
-import Shipping from "./Shipping";
+import ShippingPage from "./Shipping";
 import Payment from "./Payment";
 
 const Pages = () => {
@@ -11,7 +11,7 @@ const Pages = () => {
            <Home path="/"/>
            <Bag path="/bag" />
            <Payment path="/payment" />
-           <Shipping path="/shippping" />
+           <ShippingPage path="/shipping" />
         </Router>
     )
 }

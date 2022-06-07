@@ -1,0 +1,53 @@
+.review{
+    background: #000000;
+    color: #ffffff;
+    padding: 1em;
+    padding-left: 5em;
+}
+h3{
+    font-size: 36px;
+}
+.review-info, .review-left-info,
+.subtotal, .shipping, .estimate, .total{
+    display: flex;
+    justify-content: space-between;
+}
+.review-left{
+    width: 60vw;
+}
+.review-left-info input{
+    background: #000000;
+    border: none;
+    color: #ffffff;
+    width: 3vw;
+}
+.device-stick{
+    height: 5vh;
+    margin-top: 7%;
+}
+.review-right-info{
+    background: #1e1e1e;
+    border-radius: 20px;
+    padding: 1em;
+    height: 45vh;
+}
+.checkout{
+    width: 20vw;
+}
+.form-input{
+    background: #202020;
+    border: none;
+    border-radius: 10px;
+    padding: 1em;
+    color: #ffffff;
+    width: 90%;
+    margin-bottom: 3%;
+}
+.apply{
+    color: #ffffff;
+    background: #202020;
+    border: none;
+    padding: 1em;
+    border-radius: 10px;
+    margin-left: -30%;
+}

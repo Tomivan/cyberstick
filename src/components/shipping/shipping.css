@@ -1,0 +1,22 @@
+.shipping-page{
+    display: flex;
+    justify-content: space-between;
+    background: #000000;
+    color: #ffffff;
+    padding: 1em;
+    padding-left: 5em;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+}
+.form-info{
+    display: flex;
+}
+.form-info input{
+    width: 40%;
+    margin-right: 3%;
+}
+.proceed{
+    width: 28vw;
+}

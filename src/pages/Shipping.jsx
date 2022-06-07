@@ -1,12 +1,16 @@
 import React from "react";
+import Footer from "../components/footer/footer";
 import Nav from "../components/nav/nav";
+import Shipping from "../components/shipping/shipping";
 
-const Shipping = () => {
+const ShippingPage = () => {
     return(
         <div>
             <Nav />
+            <Shipping />
+            <Footer />
         </div>
     )
 }
 
-export default Shipping;
+export default ShippingPage;

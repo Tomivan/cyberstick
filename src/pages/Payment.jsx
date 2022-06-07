@@ -1,5 +1,5 @@
 import React from "react";
-import "../components/nav/nav";
+import Nav from "../components/nav/nav";
 
 const Payment = () => {
     return(
