@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "@reach/router";
 import Cyber from "../../assets/images/cyber.png";
 import Cart from "../../assets/images/cart.png";
 import Search from "../../assets/images/search.png";
@@ -8,7 +9,7 @@ const Nav = () => {
     return(
         <div className="nav">
             <div className="nav-left">
-                <img src={Cyber} alt="The official cyberstick logo" />
+                <Link to="/"><img src={Cyber} alt="The official cyberstick logo" /></Link>
                 <ul>
                     <li>Overview</li>
                     <li>Specs</li>

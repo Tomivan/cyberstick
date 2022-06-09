@@ -1,6 +1,3 @@
-import React from 'react';
-import './App.css';
-import Pages from './pages';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import 'firebase/compat/auth';
@@ -16,13 +13,6 @@ const config = {
   measurementId: "G-LG1VDNEGHN"
 };
 
-function App() {
-  firebase.initializeApp(config);
-  return (
-    <div className="App">
-      <Pages />
-    </div>
-  );
-}
+firebase.initializeApp(config);
 
-export default App;
+export default firebase;

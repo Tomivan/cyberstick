@@ -1,23 +1,48 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
 import "./shipping.css";
 
 const Shipping = () => {
-    const {handleSubmit, register } = useForm([]);
+    const {handleSubmit, register, reset } = useForm([]);
+
+    function shippingDetails(data) {
+        const msg = `First Name: ${data.firstName}<br />
+                     Last Name: ${data.lastName} <br />
+                     Street Address: ${data.address} <br />
+                     Country: ${data.country} <br />
+                     Zip Code: ${data.zipCode} <br />
+                     City: ${data.city} <br />
+                     Phone Number: ${data.phoneNumber} <br />
+                     Email address: ${data.email} <br />`
+        firebase.firestore().collection("mail").add({to: "bukunmiodugbesans@gmail.com", message:{html:msg, subject:"New User Signup"}})
+        .then((response) => {
+            reset()
+             window.alert("Successfully Saved")
+             console.log(response)
+          })
+        .catch(
+            (error) => {window.alert("Unfortunately, your details didn't save! Please try again.")
+            console.log(error)
+            })
+        
+        
+    }
     return(
         <div className="shipping-page">
             <div className="shipping-left">
                 <h3>Shipping</h3>
-                <p>Wher Should We Send Your Order?</p>
-                <form className="form" onSubmit={handleSubmit()}>
+                <p>Where Should We Send Your Order?</p>
+                <form className="form" onSubmit={handleSubmit(shippingDetails)}>
                     <p>Enter Your Name And Address:</p>
-                    <input type="text" placeholder="First Name" className="form-input" name="firstname" {...register("firstname",{required: true})} />
-                    <input type="text" placeholder="Last Name" className="form-input" name="lasstname" {...register("lastname",{required: true})} />
-                    <input type="text" placeholder="Street Address" className="form-input" name="address" {...register("address",{required: true})} />
-                    <input type="text" placeholder="Country" className="form-input" required/>
+                    <input type="text" placeholder="First Name" className="form-input" {...register("firstName",{required: true})} />
+                    <input type="text" placeholder="Last Name" className="form-input"  {...register("lastName",{required: true})} />
+                    <input type="text" placeholder="Street Address" className="form-input"  {...register("address",{required: true})} />
+                    <input type="text" placeholder="Country" className="form-input" {...register("country",{required: true})}/>
                     <div className="form-info">
-                        <input type="number" placeholder="Zip Code" className="form-input" name="zipCode" {...register("zipCode",{required: true})} />
-                        <input type="text" placeholder="City/State"className="form-input" name="city" {...register("city",{required: true})} />
+                        <input type="number" placeholder="Zip Code" className="form-input" {...register("zipCode",{required: true})} />
+                        <input type="text" placeholder="City/State"className="form-input" {...register("city",{required: true})} />
                     </div>
                     <p>What's Your Contact Information?</p>
                     <input type="email" placeholder="Email Address" className="form-input" name="email" {...register("email",{required: true})} />
