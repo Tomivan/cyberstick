@@ -8,7 +8,7 @@
     justify-content: space-around;
 }
 .footer-down{
-    display: flex;
+    display: flex;   
 }
 .social-icons{
     margin: 1% 0 0 5%;
@@ -16,4 +16,9 @@
 }
 .social-icon{
     margin-left: 2%;
+}
+@media screen and (max-width: 767px) {
+    .footer-top, .footer-down{
+     flex-direction: column;
+    }
 }

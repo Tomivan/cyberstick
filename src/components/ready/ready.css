@@ -11,3 +11,15 @@
     justify-content: space-evenly;
     width: 70vw;
 }
+@media screen and (max-width: 767px) {
+    .arrow{
+     width: 90%;
+    }
+    .ready-bottom{
+        margin-left: 2%;
+    }
+    .ready-bottom-content{
+        flex-direction: column;
+        margin-left: 20%;
+    }
+}

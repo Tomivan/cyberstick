@@ -22,3 +22,11 @@ h2{
     text-decoration: none;
     color: #ffffff;
 }
+@media screen and (max-width: 767px) {
+    .buy{
+     height: 65vh;
+    }
+    .buy-now{
+        width: 50vw;
+    }
+}

@@ -1,6 +1,6 @@
 .background{
     width: 97.6vw;
-    height: 90vh;
+    height: 95vh;
 }
 .main-info{
     text-align: center;
@@ -19,4 +19,9 @@ h1{
 }
 .cyberstick{
     height: 40vh;
+}
+@media screen and (max-width: 767px) {
+    .background{
+     height: 130vh;
+    }
 }

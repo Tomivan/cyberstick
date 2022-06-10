@@ -20,3 +20,15 @@
 .proceed{
     width: 28vw;
 }
+@media screen and (max-width: 767px) {
+    .shipping-page{
+     flex-direction: column;
+     padding-left: 1em;
+    }
+    .proceed{
+        width: 90vw;
+    }
+    .review-right-info{
+        margin-top: 3%;
+    }
+}

@@ -51,3 +51,27 @@ h3{
     border-radius: 10px;
     margin-left: -30%;
 }
+.quantity {
+    display: flex;
+    width: 23%;
+    color: #ffffff;
+    margin: 4%;
+}
+.arrow {
+    cursor: pointer;
+}
+.value {
+    margin: 0 10px;
+}
+
+@media screen and (max-width: 767px) {
+    .review{
+        padding-left: 1em;
+    }
+    .review-info{
+     flex-direction: column;
+    }
+    .review-left, .checkout{
+        width: 90vw;
+    }
+}

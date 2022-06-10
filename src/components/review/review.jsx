@@ -15,7 +15,15 @@ const Review = () => {
                             <p>Cyberstick - Black</p>
                             <p>Get it in 3 days</p>
                         </div>
-                        <input type="number" required/> 
+                        <span className='quantity'>
+                            <div className='arrow'>
+                                &#10094;
+                            </div>
+                            <span className='value'>1</span>
+                            <div className='arrow'>
+                                &#10095;
+                            </div>
+                        </span>
                         <div className="money">
                             <p>N25,000</p>
                             <p><span className="gradient">Remove</span></p>
