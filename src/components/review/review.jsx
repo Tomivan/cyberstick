@@ -2,8 +2,25 @@ import React from "react";
 import { Link } from "@reach/router";
 import DeviceStick from "../../assets/images/device-stick.png";
 import "./review.css";
+import { useState, useEffect } from "react";
 
 const Review = () => {
+    const [cartItem, setCartItem] = useState({
+        quantity:1,
+        price:39000,
+        basePrice:39000
+    })
+    useEffect(() => {
+        const increaseQuantity = ()=>{
+            setCartItem({...cartItem, quantity:cartItem.quantity - 1, price:cartItem.basePrice * cartItem.quantity})}
+        }
+    )
+    const decreaseQuantity = ()=>{
+        if(cartItem.quantity > 1){
+        setCartItem({...cartItem, quantity:cartItem.quantity - 1, price: cartItem.basePrice * cartItem.quantity})}
+        console.log(cartItem)
+    }
+   
     return(
         <div className="review">
             <h3>Review Your Bag</h3>
@@ -16,16 +33,16 @@ const Review = () => {
                             <p>Get it in 3 days</p>
                         </div>
                         <span className='quantity'>
-                            <div className='arrow'>
+                            <div className='arrow' onClick={ decreaseQuantity}>
                                 &#10094;
                             </div>
-                            <span className='value'>1</span>
-                            <div className='arrow'>
+                            <span className='value'>{cartItem.quantity}</span>
+                            <div className='arrow' onClick={increaseQuantity}>
                                 &#10095;
                             </div>
                         </span>
                         <div className="money">
-                            <p>N25,000</p>
+                            <p>{cartItem.price}</p>
                             <p><span className="gradient">Remove</span></p>
                         </div>
                     </div>
@@ -40,7 +57,7 @@ const Review = () => {
                         </div>
                         <div className="subtotal">
                             <p>Subtotal</p>
-                            <p>N25,000</p>
+                            <p>N{cartItem.price}</p>
                         </div>
                         <div className="shipping">
                             <p>Shipping</p>
@@ -53,7 +70,7 @@ const Review = () => {
                         <hr />
                         <div className="total">
                             <p>Total</p>
-                            <p>N25,000</p>
+                            <p>N{cartItem.price}</p>
                         </div>
                     </div>
                     <button className="buy-now checkout"><Link to="/shipping" className="link">CheckOut</Link></button>
