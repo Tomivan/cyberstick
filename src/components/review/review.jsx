@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "@reach/router";
 import DeviceStick from "../../assets/images/device-stick.png";
 import "./review.css";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 
 const Review = () => {
     const [cartItem, setCartItem] = useState({
@@ -10,11 +10,9 @@ const Review = () => {
         price:39000,
         basePrice:39000
     })
-    useEffect(() => {
-        const increaseQuantity = ()=>{
-            setCartItem({...cartItem, quantity:cartItem.quantity - 1, price:cartItem.basePrice * cartItem.quantity})}
-        }
-    )
+    const increaseQuantity = ()=>{
+        setCartItem({...cartItem, quantity:cartItem.quantity + 1, price:cartItem.basePrice * cartItem.quantity})
+    }
     const decreaseQuantity = ()=>{
         if(cartItem.quantity > 1){
         setCartItem({...cartItem, quantity:cartItem.quantity - 1, price: cartItem.basePrice * cartItem.quantity})}
