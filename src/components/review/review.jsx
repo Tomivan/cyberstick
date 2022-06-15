@@ -11,14 +11,13 @@ const Review = () => {
         basePrice:39000
     })
     const increaseQuantity = ()=>{
-        setCartItem({...cartItem, quantity:cartItem.quantity + 1, price:cartItem.basePrice * cartItem.quantity})
+        setCartItem({...cartItem, quantity:cartItem.quantity + 1, price:cartItem.basePrice * (cartItem.quantity + 1)})
     }
     const decreaseQuantity = ()=>{
         if(cartItem.quantity > 1){
-        setCartItem({...cartItem, quantity:cartItem.quantity - 1, price: cartItem.basePrice * cartItem.quantity})}
-        console.log(cartItem)
+        setCartItem({...cartItem, quantity:cartItem.quantity - 1, price: cartItem.basePrice * (cartItem.quantity - 1)})}
     }
-   
+    
     return(
         <div className="review">
             <h3>Review Your Bag</h3>

@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Pages from './pages';
+import { PriceProvider } from './context/priceContext';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import 'firebase/compat/auth';
@@ -20,7 +21,9 @@ function App() {
   firebase.initializeApp(config);
   return (
     <div className="App">
-      <Pages />
+      <PriceProvider>
+        <Pages />
+      </PriceProvider>
     </div>
   );
 }
