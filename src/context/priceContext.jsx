@@ -2,10 +2,10 @@ import { createContext, useState } from "react";
 const PriceContext = createContext({});
 
 const PriceProvider = ({children}) => {
-    const [price, setPrice] = useState(null);
+    const [cart, setCart] = useState({price: 39000, quantity: 1});
 
     return(
-        <PriceContext.Provider value={{price, setPrice}}>
+        <PriceContext.Provider value={{cart, setCart}}>
             {children}
         </PriceContext.Provider>
     )

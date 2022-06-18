@@ -2,25 +2,22 @@ import React, { useContext } from "react";
 import { Link } from "@reach/router";
 import DeviceStick from "../../assets/images/device-stick.png";
 import "./review.css";
-import { useState} from "react";
 import { PriceContext } from "../../context/priceContext";
 
 const Review = () => {
-    const {price, setPrice} =useContext(PriceContext)
-    const [cartItem, setCartItem] = useState({
-        quantity:1,
-        price:39000,
-        basePrice:39000
-    })
+    const {cart, setCart} =useContext(PriceContext)
+    // const [cartItem, setCartItem] = useState({
+    //     quantity:1,
+    //     price:39000,
+    //     basePrice:39000
+    // })
     const increaseQuantity = ()=>{
-        setCartItem({...cartItem, quantity:cartItem.quantity + 1, price:cartItem.basePrice * (cartItem.quantity + 1)})
-        setPrice({...price,price:cartItem.basePrice,quantity:cartItem.quantity + 1})
+        setCart({...cart, quantity: cart.quantity + 1})
+        
     }
     const decreaseQuantity = ()=>{
-        if(cartItem.quantity > 1){
-        setCartItem({...cartItem, quantity:cartItem.quantity - 1, price: cartItem.basePrice * (cartItem.quantity - 1)})}
-        setPrice({...price,price:cartItem.basePrice,quantity:cartItem.quantity - 1})
-
+        if(cart.quantity > 1){
+            setCart({...cart, quantity: cart.quantity - 1})}
     }
 
     return(
@@ -38,13 +35,13 @@ const Review = () => {
                             <div className='arrow' onClick={ decreaseQuantity}>
                                 &#10094;
                             </div>
-                            <span className='value'>{cartItem.quantity}</span>
+                            <span className='value'>{cart.quantity}</span>
                             <div className='arrow' onClick={increaseQuantity}>
                                 &#10095;
                             </div>
                         </span>
                         <div className="money">
-                            <p>{cartItem.price}</p>
+                            <p>{cart.price * cart.quantity}</p>
                             <p><span className="gradient">Remove</span></p>
                         </div>
                     </div>
@@ -59,7 +56,7 @@ const Review = () => {
                         </div>
                         <div className="subtotal">
                             <p>Subtotal</p>
-                            <p>N{cartItem.price}</p>
+                            <p>N{cart.price * cart.quantity}</p>
                         </div>
                         <div className="shipping">
                             <p>Shipping</p>
@@ -72,7 +69,7 @@ const Review = () => {
                         <hr />
                         <div className="total">
                             <p>Total</p>
-                            <p>N{cartItem.price}</p>
+                            <p>N{cart.price * cart.quantity}</p>
                         </div>
                     </div>
                     <button className="buy-now checkout"><Link to="/shipping" className="link">CheckOut</Link></button>
