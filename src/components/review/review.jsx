@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "@reach/router";
 import DeviceStick from "../../assets/images/device-stick.png";
 import "./review.css";
 import { useState} from "react";
+import { PriceContext } from "../../context/priceContext";
 
 const Review = () => {
+    const {setPrice} =useContext(PriceContext)
     const [cartItem, setCartItem] = useState({
         quantity:1,
         price:39000,
@@ -12,12 +14,16 @@ const Review = () => {
     })
     const increaseQuantity = ()=>{
         setCartItem({...cartItem, quantity:cartItem.quantity + 1, price:cartItem.basePrice * (cartItem.quantity + 1)})
+
+        setPrice(cartItem.price)
     }
     const decreaseQuantity = ()=>{
         if(cartItem.quantity > 1){
         setCartItem({...cartItem, quantity:cartItem.quantity - 1, price: cartItem.basePrice * (cartItem.quantity - 1)})}
+        setPrice(cartItem.price)
+
     }
-    
+
     return(
         <div className="review">
             <h3>Review Your Bag</h3>

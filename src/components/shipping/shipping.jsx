@@ -1,12 +1,14 @@
-import React from "react";
+import React, {useContext} from "react";
 import { useForm } from "react-hook-form";
+import { PriceContext } from "../../context/priceContext";
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import "./shipping.css";
 
 const Shipping = () => {
     const {handleSubmit, register, reset } = useForm([]);
-
+    const {price} = useContext(PriceContext)
+    console.log(price)
     function shippingDetails(data) {
         const msg = `First Name: ${data.firstName}<br />
                      Last Name: ${data.lastName} <br />
@@ -58,7 +60,7 @@ const Shipping = () => {
                 </div>
                 <div className="subtotal">
                     <p>Subtotal</p>
-                    <p>N25,000</p>
+                    <p>{price}</p>
                 </div>
                 <div className="shipping">
                     <p>Shipping</p>
@@ -71,7 +73,7 @@ const Shipping = () => {
                 <hr />
                 <div className="total">
                     <p>Total</p>
-                    <p>N25,000</p>
+                    <p>{price}</p>
                 </div>
             </div>
         </div>
