@@ -7,8 +7,8 @@ import "./shipping.css";
 
 const Shipping = () => {
     const {handleSubmit, register, reset } = useForm([]);
-    const {price,quantity} = useContext(PriceContext)
-    console.log(price)
+    const {cart} = useContext(PriceContext)
+    console.log(cart)
     function shippingDetails(data) {
         const msg = `First Name: ${data.firstName}<br />
                      Last Name: ${data.lastName} <br />
@@ -60,7 +60,7 @@ const Shipping = () => {
                 </div>
                 <div className="subtotal">
                     <p>Subtotal</p>
-                    <p>{price * quantity}</p>
+                    <p>{cart.price * cart.quantity}</p>
                 </div>
                 <div className="shipping">
                     <p>Shipping</p>
@@ -73,7 +73,7 @@ const Shipping = () => {
                 <hr />
                 <div className="total">
                     <p>Total</p>
-                    <p>{price *quantity}</p>
+                    <p>{cart.price * cart.quantity}</p>
                 </div>
             </div>
         </div>

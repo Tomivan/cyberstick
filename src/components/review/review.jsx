@@ -6,11 +6,6 @@ import { PriceContext } from "../../context/priceContext";
 
 const Review = () => {
     const {cart, setCart} =useContext(PriceContext)
-    // const [cartItem, setCartItem] = useState({
-    //     quantity:1,
-    //     price:39000,
-    //     basePrice:39000
-    // })
     const increaseQuantity = ()=>{
         setCart({...cart, quantity: cart.quantity + 1})
         
