@@ -6,7 +6,7 @@ import { useState} from "react";
 import { PriceContext } from "../../context/priceContext";
 
 const Review = () => {
-    const {setPrice} =useContext(PriceContext)
+    const {price, setPrice} =useContext(PriceContext)
     const [cartItem, setCartItem] = useState({
         quantity:1,
         price:39000,
@@ -14,13 +14,12 @@ const Review = () => {
     })
     const increaseQuantity = ()=>{
         setCartItem({...cartItem, quantity:cartItem.quantity + 1, price:cartItem.basePrice * (cartItem.quantity + 1)})
-
-        setPrice(cartItem.price)
+        setPrice({...price,price:cartItem.basePrice,quantity:cartItem.quantity + 1})
     }
     const decreaseQuantity = ()=>{
         if(cartItem.quantity > 1){
         setCartItem({...cartItem, quantity:cartItem.quantity - 1, price: cartItem.basePrice * (cartItem.quantity - 1)})}
-        setPrice(cartItem.price)
+        setPrice({...price,price:cartItem.basePrice,quantity:cartItem.quantity - 1})
 
     }
 
