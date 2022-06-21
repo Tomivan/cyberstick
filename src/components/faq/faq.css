@@ -1,0 +1,20 @@
+.faqs{
+    background: #000000;
+    color: #ffffff;
+    padding: 1em;
+}
+.accordion{
+    margin-top: 2%;
+    width: 50vw;
+}
+.accordion-item{
+    border: none !important;
+    border-bottom: 1px solid #ffffff !important; 
+}
+.accordion-button{
+    background: #000000 !important;
+    color: #ffffff !important;
+}
+.accordion-body{
+    background: #000000 !important;
+}

@@ -1,7 +1,7 @@
 .nav{
     background: #000000;
     padding: 1em;
-    height: 5vh;
+    height: 10vh;
     display: flex;
     justify-content: space-between;
 }

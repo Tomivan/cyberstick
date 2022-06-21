@@ -6,7 +6,11 @@
     display: flex;
     color: #ffffff;
     padding: 1em;
-    margin-top: -35%;
+    position: absolute;
+    top: 15%;
+}
+.left{
+    width: 60vw;
 }
 h1{
     font-size: 48px;
@@ -21,10 +25,14 @@ h1{
     margin-left: 25%;
 }
 @media screen and (max-width: 767px) {
-    /* .background{
+    .background{
      height: 130vh;
-    } */
+    }
     .main-info{
         flex-direction: column;
+        top: 10%;
+    }
+    .cyberstick{
+        margin: 3% 0 0 0;
     }
 }

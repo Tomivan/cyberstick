@@ -1,5 +1,6 @@
 import React from "react";
 import Buy from "../components/buy/buy";
+import FAQs from "../components/faq/faq";
 import Footer from "../components/footer/footer";
 import Main from "../components/main/main";
 import Nav from "../components/nav/nav";
@@ -14,6 +15,7 @@ const Home = () => {
             <Buy />
             <Smarter />
             <Ready />
+            <FAQs />
             <Footer />
         </div>
     )
