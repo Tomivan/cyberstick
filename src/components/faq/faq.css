@@ -18,3 +18,9 @@
 .accordion-body{
     background: #000000 !important;
 }
+
+@media screen and (max-width: 767px) {
+    .accordion{
+        width: 80vw;
+    }
+}
