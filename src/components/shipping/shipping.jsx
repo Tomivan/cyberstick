@@ -1,14 +1,30 @@
-import React, {useContext} from "react";
+import React, {useContext,useState} from "react";
 import { useForm } from "react-hook-form";
 import { PriceContext } from "../../context/priceContext";
+import { PaystackButton } from "react-paystack";
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import "./shipping.css";
 
 const Shipping = () => {
     const {handleSubmit, register, reset } = useForm([]);
-    const {cart} = useContext(PriceContext)
-    console.log(cart)
+    const {cart} = useContext(PriceContext);
+    const [details, setDetails ]= useState({
+        publicKey:"pk_test_9fadc219a916306bdc61929d2452d6dfb31b32d1",
+        email: ""
+    })
+    const componentProps = {
+        email:details.email,
+        amount:(cart.price * cart.quantity )* 100,
+        publicKey:details.publicKey,
+        text: "Proceed to payment",
+        onSuccess: ()=>{
+            alert("success")
+        },
+        onclose:()=>{
+            alert('Payment closed')
+        }  
+    }
     function shippingDetails(data) {
         const msg = `First Name: ${data.firstName}<br />
                      Last Name: ${data.lastName} <br />
@@ -29,28 +45,27 @@ const Shipping = () => {
             console.log(error)
             })
         
-        
-    }
+        }
     return(
         <div className="shipping-page">
             <div className="shipping-left">
                 <h3>Shipping</h3>
                 <p>Where Should We Send Your Order?</p>
-                <form className="form" onSubmit={handleSubmit(shippingDetails)}>
+                <form className="form" onSubmit={handleSubmit(shippingDetails())}>
                     <p>Enter Your Name And Address:</p>
                     <input type="text" placeholder="First Name" className="form-input" {...register("firstName",{required: true})} />
                     <input type="text" placeholder="Last Name" className="form-input"  {...register("lastName",{required: true})} />
                     <input type="text" placeholder="Street Address" className="form-input"  {...register("address",{required: true})} />
                     <input type="text" placeholder="Country" className="form-input" {...register("country",{required: true})}/>
                     <div className="form-info">
-                        <input type="number" placeholder="Zip Code" className="form-input" {...register("zipCode",{required: true})} />
+                        <input type="phone" placeholder="Zip Code" className="form-input" {...register("zipCode",{required: true})} />
                         <input type="text" placeholder="City/State"className="form-input" {...register("city",{required: true})} />
                     </div>
                     <p>What's Your Contact Information?</p>
-                    <input type="email" placeholder="Email Address" className="form-input" name="email" {...register("email",{required: true})} />
-                    <input type="number" placeholder="Phone Number" className="form-input" name="phoneNumber" {...register("phoneNumber",{required: true})} />
-                    <button className="buy-now proceed">Proceed to Payment</button>
+                <input type="email" placeholder="Email Address" className="form-input" {...register("email",{required: true})} onChange={(e)=>{setDetails({...details,email:e.target.value})}}/>
+                    <input type="phone" placeholder="Phone Number" className="form-input" {...register("phoneNumber",{required: true})} />
                 </form>
+                <PaystackButton {...componentProps} className="buy-now proceed" />
            </div>
            <div className="review-right-info">
                 <p>Your Order Total</p>
